@@ -20,10 +20,10 @@ def get_question():
     a[request_data['userRequest']['user']['id']] = '아직 AI가 처리중이에요'
     try:
         api = requests.post('https://api.asyncia.com/v1/api/request/', json={
-            "apikey": “<OpenAI API KEY>",
+            "apikey": "<OpenAI API KEY>",
             "messages" :[{"role": "user", "content": request_data['action']['params']['question']}],
             "userdata": [["user", request_data['userRequest']['user']['id']]]},
-            headers={"apikey":“<Asyncia API KEY>"}, timeout=0.3)
+            headers={"apikey":"<Asyncia API KEY>"}, timeout=0.3)
     except requests.exceptions.ReadTimeout:
         pass
     return jsonify(response)
